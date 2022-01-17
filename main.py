@@ -4,10 +4,10 @@ app = Flask(__name__)
  
 @app.route('/')  
 def index():  
-    return redirect(url_for('/default/user/login'))
+    return redirect(url_for('/defaultuserlogin'))
  
-@app.route('/default/user/login')  
-def login():  
+@app.route('/defaultuserlogin')  
+def defaultuserlogin():  
     return render_template('login.html')
 
 @app.route('/welcome')  
