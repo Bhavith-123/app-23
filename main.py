@@ -17,9 +17,11 @@ def verify():
         password = request.form['password']
 
         if username == 'admin' and password == 'admin@123':
-            return render_template('index.html')
+            flash('Logged In Successfully')
+           return redirect(url_for('home'))
         else:
-            return render_template('login.html')
+            flash('Invalid Username or Password')
+           return redirect(url_for('login'))
 
 @app.errorhandler(404)
 def page_not_found(error):
