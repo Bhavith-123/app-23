@@ -16,7 +16,7 @@ def verify():
           return redirect(url_for("usrdashboard"))  
         return redirect(url_for("login"))
  
-@app.route('/userdashboard')  
+@app.route('/usrdashboard')  
 def usrdashboard():  
     return 'Logged in successfully'
 
