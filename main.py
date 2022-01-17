@@ -20,7 +20,7 @@ def verify():
 def success():  
     return 'logged in successfully'
 
-app.route('/failure')  
+@app.route('/failure')  
 def failure():  
     return "<h2 style="text-align:center;color:red;'><b>Your account is Unauthorised!!</b></h2>"
 
