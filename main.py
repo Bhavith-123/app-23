@@ -1,24 +1,24 @@
 from flask import *
 
-app = Flask(__name__)
-
+app = Flask(__name__)  
+ 
 @app.route('/')  
-def index():  
-    return redirect(url_for("login"))
+def home ():  
+    return render_template("index.html")  
  
 @app.route('/login')  
 def login():  
-    return render_template("login.html")
+    return render_template("login.html");  
  
 @app.route('/verify', methods = ["POST"])  
 def verify():  
-    if request.method == 'POST' and request.form['password'] == 'Bhavith@123':  
-          return redirect(url_for("usrdashboard"))  
-        return redirect(url_for("login"))
+    if request.method == 'POST' and request.form['pass'] == 'jtp':  
+        return redirect(url_for("success"))  
+    return redirect(url_for("login"))  
  
-@app.route('/usrdashboard')  
-def usrdashboard():  
-    return 'Logged in successfully'
+@app.route('/success')  
+def success():  
+    return "logged in successfully"  
 
 @app.errorhandler(404)
 def page_not_found(error):
