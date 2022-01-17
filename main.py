@@ -4,22 +4,15 @@ app = Flask(__name__)
  
 @app.route('/')  
 def index():  
-    return redirect(url_for('login'))
+    return redirect(url_for('default', 'user', 'login'))
  
-@app.route('/login')  
+@app.route('/default/user/login')  
 def login():  
     return render_template('login.html')
 
 @app.route('/welcome')  
 def welcome():  
     return render_template('index.html')
-
-@app.route('/verify', method = ['POST'])
-def verify():
-      if request.form[username] == 'admin' and request.form[password] == 'admin@123':
-           return redirect(url_for('welcome'))
-      else:
-           return redirect(url_for('login'))
 
 @app.errorhandler(404)
 def page_not_found(error):
