@@ -3,22 +3,22 @@ from flask import *
 app = Flask(__name__)
 
 @app.route('/')  
-def home():  
+def index():  
     return redirect(url_for("appform"))
  
 @app.route('/login')  
-def appform():  
+def login():  
     return render_template("login.html")
  
 @app.route('/verify', methods = ["POST"])  
 def verify():  
     if request.method == 'POST' and request.form['password'] == 'Bhavith@123':  
-          return redirect(url_for("success"))  
-        return redirect(url_for("appform"))
+          return redirect(url_for("usrdashboard"))  
+        return redirect(url_for("login"))
  
-@app.route('/success')  
-def success():  
-    return 'logged in successfully'
+@app.route('/userdashboard')  
+def usrdashboard():  
+    return 'Logged in successfully'
 
 @app.errorhandler(404)
 def page_not_found(error):
