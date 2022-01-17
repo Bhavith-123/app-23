@@ -4,11 +4,11 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return return_template('index.html')
+    return render_template('index.html')
 
 @app.route('/home')
 def home_page():
-    return return_template('index.html')
+    return render_template('index.html')
 
 @app.errorhandler(404)
 def page_not_found(error):
