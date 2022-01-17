@@ -4,11 +4,11 @@ app = Flask(__name__)
  
 @app.route('/')  
 def index():  
-    return redirect(url_for('login'))
+    return redirect(url_for("login"))
  
 @app.route('/login')  
 def login():  
-    return render_template('login.html')
+    return render_template("login.html")
 
 @app.errorhandler(404)
 def page_not_found(error):
