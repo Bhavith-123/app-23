@@ -10,6 +10,17 @@ def index():
 def login():  
     return render_template("login.html")
 
+@app.route("/verify", methods=["GET", "POST"])
+def verify():
+    if request.method == "POST":
+        username = request.form['username']
+        password = request.form['password']
+
+        if username == 'admin' and password == 'admin@123':
+            return render_template('index.html')
+        else:
+            return render_template('login.html')
+
 @app.errorhandler(404)
 def page_not_found(error):
     return render_template('page_not_found.html'), 404
