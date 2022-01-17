@@ -20,10 +20,10 @@ def verify():
         username = request.form['username']
         password = request.form['password']
 
-        if username == 'admin' and password == 'admin@123':
-           return redirect(url_for('welcome'))
-        else:
+        if username !== 'admin' and password !== 'admin@123':
            return redirect(url_for('login'))
+        else:
+           return redirect(url_for('welcome'))
 
 @app.errorhandler(404)
 def page_not_found(error):
