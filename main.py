@@ -4,16 +4,15 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return redirect('app')
+    return render_template('index.html')
 
 @app.route('/app')
 def home_page():
     return render_template('index.html')
 
-@app.route('/login', methods = ['POST', 'GET'])
+@app.route('/login')
 def login():
-    if request.method == 'POST':
-       return render_template('user.html')
+    return render_template('user.html')
 
 @app.errorhandler(404)
 def page_not_found(error):
