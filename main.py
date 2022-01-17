@@ -6,24 +6,19 @@ app = Flask(__name__)
 def home():  
     return redirect(url_for("appform"))
  
-@app.route('/appform')  
+@app.route('/login')  
 def appform():  
-    return render_template("index.html")
+    return render_template("login.html")
  
 @app.route('/verify', methods = ["POST"])  
 def verify():  
     if request.method == 'POST' and request.form['password'] == 'Bhavith@123':  
           return redirect(url_for("success"))  
-        return redirect(url_for("failure"))
+        return redirect(url_for("appform"))
  
 @app.route('/success')  
 def success():  
     return 'logged in successfully'
-
-@app.route('/failure')  
-def failure():  
-    return 'Your account is Unauthorised!!'
-
 
 @app.errorhandler(404)
 def page_not_found(error):
