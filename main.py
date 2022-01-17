@@ -14,7 +14,7 @@ def appform():
 def verify():  
     if request.method == 'POST' and request.form['password'] == 'Bhavith@123':  
           return redirect(url_for("success"))  
-          return redirect (url_for("appform"))
+          abort(401)
  
 @app.route('/success')  
 def success():  
