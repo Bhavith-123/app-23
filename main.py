@@ -14,10 +14,13 @@ def login():
 def welcome():  
     return render_template('index.html')
 
-@app.route('/verify')
+@app.route('/verify', methods=['GET', 'POST'])
 def verify():
-    return redirect(url_for('welcome'))
-
+        if request.method == 'POST':
+            if request.form[username] == 'admin' and request.form[password] == 'admin@123':
+                return redirect(url_for('welcome'))
+            else:
+                return redirect(url_for('login'))
 @app.errorhandler(404)
 def page_not_found(error):
     return render_template('page_not_found.html'), 404
