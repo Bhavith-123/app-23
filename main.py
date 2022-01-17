@@ -10,9 +10,11 @@ def home ():
 def appform():  
     return render_template("index.html");  
  
-@app.route('/login')  
-def login():  
-    return redirect(url_for('success'))
+@app.route('/verify', methods = ["POST"])  
+def verify():  
+    if request.method == 'POST' and request.form['password'] == 'Bhavith@123':  
+        return redirect(url_for("success"))  
+    return redirect(url_for("appform")) 
  
 @app.route('/success')  
 def success():  
