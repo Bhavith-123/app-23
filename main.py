@@ -14,7 +14,7 @@ def login():
 def welcome():  
     return render_template('index.html')
 
-@app.route('/verify', methods=['GET', 'POST'])
+@app.route('/verify', methods = ['GET', 'POST'])
 def verify():
         if request.method == 'POST':
             if request.form[username] == 'admin' and request.form[password] == 'admin@123':
