@@ -1,18 +1,22 @@
-from flask import Flask, render_template
+from flask import *
 
 app = Flask(__name__)
 
-@app.route('/')
-def index():
-    return render_template('index.html')
-
-@app.route('/app')
-def home_page():
-    return render_template('index.html')
-
-@app.route('/login')
-def login():
-    return render_template('user.html')
+@app.route('/')  
+def home ():  
+    return redirect(url_for("appform"))
+ 
+@app.route('/appform')  
+def appform():  
+    return render_template("index.html");  
+ 
+@app.route('/login')  
+def login():  
+    return redirect(url_for('success'))
+ 
+@app.route('/success')  
+def success():  
+    return 'logged in successfully'
 
 @app.errorhandler(404)
 def page_not_found(error):
