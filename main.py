@@ -10,12 +10,13 @@ def home():
 def login():  
     return render_template('login.html') 
 
-@app.route('/verify', methods=['GET', 'POST'])
+@app.route('/verify', methods=['POST'])
 def verify():
-    if request.method == 'POST':
-        if request.form['username'] = 'admin' or request.form['password'] = 'admin@123':
-            return redirect(url_for('success'))
-    return render_template('login.html')
+if request.form['username'] == 'user' and request.form['password'] == 'pass':
+ return redirect(url_for('success'))
+else:
+flash('Wrong Username or Password!')
+return redirect(url_for('login'))
 
 @app.route('/success')
 def success():
