@@ -4,9 +4,9 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello():
-    return redirect(url_for('login'))
+    return return_template('index.html')
 
-@app.route('/login')
+@app.route('/home')
 def hello():
     return return_template('index.html')
 
