@@ -8,7 +8,7 @@ def home():
  
 @app.route('/appform')  
 def appform():  
-    return render_template("index.html");  
+    return render_template("index.html")
  
 @app.route('/verify', methods = ["POST"])  
 def verify():  
@@ -22,7 +22,7 @@ def success():
 
 @app.route('/failure')  
 def failure():  
-    return "<h2 style="text-align:center;color:red;'><b>Your account is Unauthorised!!</b></h2>"
+    return 'Your account is Unauthorised!!'
 
 
 @app.errorhandler(404)
