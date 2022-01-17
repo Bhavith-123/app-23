@@ -10,8 +10,8 @@ def index():
 def login():  
     return render_template("login.html")
 
-@app.route('/home')  
-def home():  
+@app.route('/welcome')  
+def welcome():  
     return render_template("index.html")
 
 @app.route("/verify", methods=["GET", "POST"])
@@ -21,10 +21,8 @@ def verify():
         password = request.form['password']
 
         if username == 'admin' and password == 'admin@123':
-            flash('Logged In Successfully')
-           return redirect(url_for('home'))
+           return redirect(url_for('welcome'))
         else:
-            flash('Invalid Username or Password')
            return redirect(url_for('login'))
 
 @app.errorhandler(404)
