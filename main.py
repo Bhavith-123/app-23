@@ -21,6 +21,7 @@ def verify():
                 return redirect(url_for('welcome'))
             else:
                 return redirect(url_for('login'))
+
 @app.errorhandler(404)
 def page_not_found(error):
     return render_template('page_not_found.html'), 404
