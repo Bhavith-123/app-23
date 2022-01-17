@@ -14,7 +14,7 @@ def appform():
 def verify():  
     if request.method == 'POST' and request.form['password'] == 'Bhavith@123':  
           return redirect(url_for("success"))  
-        return redirect(url_for("failure'"))
+        return redirect(url_for("failure"))
  
 @app.route('/success')  
 def success():  
@@ -22,7 +22,7 @@ def success():
 
 app.route('/failure')  
 def failure():  
-    return "<html><body><h2 style="text-align:center;color:red;'><b>Your account is Unauthorised!!</b></h2></body></html>"
+    return "<h2 style="text-align:center;color:red;'><b>Your account is Unauthorised!!</b></h2>"
 
 
 @app.errorhandler(404)
