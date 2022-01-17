@@ -14,16 +14,9 @@ def login():
 def welcome():  
     return render_template("index.html")
 
-@app.route("/verify", methods=["GET", "POST"])
+@app.route('/verify')
 def verify():
-    if request.method == "POST":
-        username = request.form['username']
-        password = request.form['password']
-
-        if username !== 'admin' and password !== 'admin@123':
-           return redirect(url_for('login'))
-        else:
-           return redirect(url_for('welcome'))
+    return redirect(url_for('welcome'))
 
 @app.errorhandler(404)
 def page_not_found(error):
