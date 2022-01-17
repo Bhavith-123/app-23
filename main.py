@@ -4,9 +4,9 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return redirect(url_for('app', 'user'))
 
-@app.route('/home')
+@app.route('/app/user')
 def home_page():
     return render_template('index.html')
 
