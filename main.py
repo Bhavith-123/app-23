@@ -8,17 +8,7 @@ def index():
  
 @app.route('/login')  
 def login():  
-    return render_template('login.html') 
-
-@app.route('/verify', methods=['POST'])
-def verify():
-if request.form['username'] == 'user' and request.form['password'] == 'pass':
-      return redirect(url_for('success'))
-    return redirect(url_for('login'))
-
-@app.route('/success')
-def success():
-      return 'Logged In Successfully'
+    return render_template('login.html')
 
 @app.errorhandler(404)
 def page_not_found(error):
