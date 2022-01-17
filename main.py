@@ -15,7 +15,7 @@ def verify():
 if request.form['username'] == 'user' and request.form['password'] == 'pass':
  return redirect(url_for('success'))
 else:
-flash('Wrong Username or Password!')
+ flash('Wrong Username or Password!'
 return redirect(url_for('login'))
 
 @app.route('/success')
