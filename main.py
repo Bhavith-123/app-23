@@ -3,7 +3,7 @@ from flask import *
 app = Flask(__name__)  
  
 @app.route('/')  
-def home():  
+def index():  
     return redirect(url_for('login'))
  
 @app.route('/login')  
@@ -13,9 +13,8 @@ def login():
 @app.route('/verify', methods=['POST'])
 def verify():
 if request.form['username'] == 'user' and request.form['password'] == 'pass':
- return redirect(url_for('success'))
-else:
- return redirect(url_for('login'))
+      return redirect(url_for('success'))
+    return redirect(url_for('login'))
 
 @app.route('/success')
 def success():
