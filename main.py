@@ -16,7 +16,7 @@ def login():
 def home():  
     return render_template('index.html')
 
-@app.route('/validate', methods = ['GET', 'POST'])
+@app.route('/validate/user/index', methods = ['GET', 'POST'])
 def validate():
    error = None
    
