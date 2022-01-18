@@ -24,7 +24,7 @@ def validate():
          error = 'Invalid username or password. Please try again!'
       else:
          flash('You were successfully logged in')
-         return redirect('welcom/user/index')
+         return redirect('welcome/user/index')
    return render_template('login.html', error = error)
 
 @app.route('/welcome/user/index')
