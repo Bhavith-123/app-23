@@ -12,7 +12,7 @@ def index():
 def login():  
     return render_template('login.html')
 
-@app.route('/home/user/welcome/index')  
+@app.route('/home')  
 def home():  
     return render_template('index.html')
 
@@ -26,7 +26,7 @@ def validate():
          error = 'Invalid username or password. Please try again!'
       else:
          flash('You were successfully logged in')
-         return redirect('home/user/welcome/index')
+         return redirect('home')
 
    return render_template('login.html', error = error)
 
