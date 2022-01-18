@@ -14,11 +14,18 @@ def login():
 def home():  
     return render_template('index.html')
 
-@app.route('/validate', methods= ['POST'])
+@app.route('/validate', methods = ['GET', 'POST'])
 def validate():
-    if request.form['username'] == 'admin' and request.form['password'] == 'admin':
-         return redirect('welcome/user/index')
-    return redirect('default/user/login/index')
+   error = None
+   
+   if request.method == 'POST':
+      if request.form['username'] != 'admin' or \
+         request.form['password'] != 'admin':
+         error = 'Invalid username or password. Please try again!'
+      else:
+         flash('You were successfully logged in')
+         return redirect('welcom/user/index')
+   return render_template('login.html', error = error)
 
 @app.route('/welcome/user/index')
 def welcome():
