@@ -2,7 +2,7 @@ from flask import *
 
 app = Flask(__name__)  
  
-app.secret_key = 'sha256huieolzbsvkeflaskhbsjsaooipp'
+app.secret_key = 'sha256hueolzbsvkeflaskhbsjsaooipp'
 
 @app.route('/')  
 def index():  
@@ -12,7 +12,7 @@ def index():
 def login():  
     return render_template('login.html')
 
-@app.route('/home')  
+@app.route('/home/user/welcome/index')  
 def home():  
     return render_template('index.html')
 
@@ -26,7 +26,7 @@ def validate():
          error = 'Invalid username or password. Please try again!'
       else:
          flash('You were successfully logged in')
-         return redirect('home')
+         return redirect('home/user/welcome/index')
 
    return render_template('login.html', error = error)
 
