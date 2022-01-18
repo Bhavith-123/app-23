@@ -2,6 +2,8 @@ from flask import *
 
 app = Flask(__name__)  
  
+app.secret_key = 'sha256huieolzbsvkeflaskhbsjsaooipp'
+
 @app.route('/')  
 def index():  
     return redirect('default/user/login/index')
@@ -24,7 +26,8 @@ def validate():
          error = 'Invalid username or password. Please try again!'
       else:
          flash('You were successfully logged in')
-         return redirect(url_for('home'))
+         return redirect('home')
+
    return render_template('login.html', error = error)
 
 @app.errorhandler(404)
