@@ -4,15 +4,11 @@ app = Flask(__name__)
  
 @app.route('/')  
 def index():  
-    return redirect(url_for('login'))
+    return redirect(url_for('login_user'))
  
-@app.route('/login')  
-def defaultuserlogin():  
+@app.route('/login_user')  
+def loginuser():  
     return render_template('login.html')
-
-@app.route('/welcome')  
-def welcome():  
-    return render_template('index.html')
 
 @app.route('/verify', methods = ['POST'])
 def validate():
@@ -20,12 +16,12 @@ def validate():
     password = request.form[password]
     
     if username == 'admin' and password == 'admin@123':
-        return redirect(url_for('success'))
+        return redirect(url_for('dashboard'))
     else:
-        return redirect(url_for('login'))
+        return redirect(url_for('login_user'))
 
-@app.route('/success')
-def success ():
+@app.route('/dashboard')
+def dashboard():
      return 'Welcome!!! You are Logged In Successfully'
 
 @app.errorhandler(404)
