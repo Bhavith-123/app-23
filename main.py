@@ -20,16 +20,12 @@ def validate():
    
    if request.method == 'POST':
       if request.form['username'] != 'admin' or \
-         request.form['password'] != 'admin':
+         request.form['password'] != 'admin@123':
          error = 'Invalid username or password. Please try again!'
       else:
          flash('You were successfully logged in')
-         return redirect(url_for('welcome'))
+         return redirect(url_for('home'))
    return render_template('login.html', error = error)
-
-@app.route('/welcome')
-def welcome():
-     return 'Welcome. You are Logged In Successfully'
 
 @app.errorhandler(404)
 def page_not_found(error):
