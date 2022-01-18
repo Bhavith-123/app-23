@@ -12,11 +12,17 @@ def login():
 
 @app.route('/verify', methods = ['POST'])
 def verify():
-    return redirect(url_for('dashboard'))
+    uid = request.form['user']
+    pid = request.form['pass']
+   
+  if uid == 'admin' and pid == 'admin@123':
+       return redirect(url_for('welcome'))
+     else:
+       return redirect(url_for('login'))
 
-@app.route('/dashboard')
-def dash():
-     return 'Welcome!!! You are Logged In Successfully'
+@app.route('/welcome')
+def welcome():
+     return 'Welcome. You are Logged In Successfully'
 
 @app.errorhandler(404)
 def page_not_found(error):
