@@ -4,24 +4,25 @@ app = Flask(__name__)
  
 @app.route('/')  
 def index():  
-    return redirect(url_for('login_user'))
+    return redirect(url_for('login'))
  
-@app.route('/login_user')  
-def loginuser():  
+@app.route('/login')  
+def login():  
     return render_template('login.html')
 
-@app.route('/verify', methods = ['POST'])
-def validate():
+@app.route('/verify', methods = ['GET', 'POST'])
+def verify():
+  if request.method == 'POST':
     username = request.form[username]
     password = request.form[password]
     
     if username == 'admin' and password == 'admin@123':
         return redirect(url_for('dashboard'))
     else:
-        return redirect(url_for('login_user'))
+        return redirect(url_for('login'))
 
 @app.route('/dashboard')
-def dashboard():
+def dash():
      return 'Welcome!!! You are Logged In Successfully'
 
 @app.errorhandler(404)
