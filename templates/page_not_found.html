@@ -15,7 +15,6 @@
      <script src="/static/js/web2py-bootstrap3.js"></script>
      <script src="/static/js/web2py.js"></script>
      <script src="/static/js/modernizr-2.8.3.min.js"></script>
-     <script src="/static/js/jquery.min.js"></script>
      <script src="/static/js/jquery-ui.js"></script>
      <script src="/static/js/scrip.js"></script>
      <script type="text/javascript">
@@ -23,14 +22,46 @@
       var w2p_ajax_disable_with_message = "Working...";
       var w2p_ajax_date_format = "%Y-%m-%d";
       var w2p_ajax_datetime_format = "%Y-%m-%d %H:%M:%S";
-      var ajax_error_500 = "An error occured, please <a href="/adm/ug">reload</a> the page";
-      </script>
-     <link rel="shortcut icon" href="/static/images/favicon.ico" type="image/x-icon">
+      var ajax_error_500 = "An error occured, please <a href="/">reload</a> the page";
+     </script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
+     <link rel="shortcut icon" href="/static/images/logo.png" type="image/png">
      <link rel="apple-touch-icon" href="/static/images/logo.png">
      <meta name="keywords" content="KB WEB SERVICES, KBWEBS, KBWEBS HUB, WWWW.KBSC.IN">
      <meta name="description" content="KB WEBSERVCES ONLINE APPLICATIONS">
      <meta name="generator" content="KB WEBSERVICES">
      <meta name="author" content="KOKKULA BHAVITH KUMAR &lt;havithkumar93940@gmail.com&gt;" >
+     <script type="text/javascript">
+       $(document).ready(function() {
+      $("#login_form").validate({
+    rules: {
+      username : {
+        required: true,
+        minlength: 4,
+        maxlength: 12
+      },
+      password: {
+        required: true,
+        minlength: 6,
+        maxlength: 20
+      }
+    },
+    messages : {
+      username: {
+        required: "Please enter your Username",
+        minlength: "Username should be at least 4 characterlong",
+        maxlength: "Username should not exceed 12 characters"
+      },
+      password: {
+        required: "Please enter your Password",
+        minlength: "Password should be at least 6 characters long",
+        maxlength: "Password should not exceed the 20 characters"
+      }
+    }
+  });
+});
+     </script>
 </head>
 <body style="height:100%;width:100%;background-color:#fff;">
       <nav class="navbar navbar-primary navbar-fixed-top bg-primary" role="navigation">
