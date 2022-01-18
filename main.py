@@ -10,12 +10,12 @@ def index():
 def login():  
     return render_template('login.html')
 
-@app.route('/verify', methods = ['POST'])
+@app.route('/verify', methods=['POST'])
 def verify():
-    uid = request.form['user']
-    pid = request.form['pass']
+    user = request.form['username']
+    pass = request.form['password']
    
-  if uid == 'admin' and pid == 'admin@123':
+  if user == 'admin' and pass == 'admin@123':
        return redirect(url_for('welcome'))
      else:
        return redirect(url_for('login'))
