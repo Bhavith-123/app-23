@@ -4,9 +4,9 @@ app = Flask(__name__)
  
 @app.route('/')  
 def index():  
-    return redirect('default/login/user')
+    return redirect('default/user/login?_next/index')
  
-@app.route('/default/login/user')  
+@app.route('/default/user/login?_next/index')  
 def login():  
     return render_template('login.html')
 
@@ -14,7 +14,13 @@ def login():
 def home():  
     return render_template('index.html')
 
-@app.route('/welcome')
+@app.route('/validate', methods= ['POST'])
+def validate():
+    if request.form['username'] == 'admin' and request.form['password'] == 'admin':
+         return redirect('welcome/user/index')
+    return redirect('default/user/login?_next/index')
+
+@app.route('/welcome/user/index')
 def welcome():
      return 'Welcome. You are Logged In Successfully'
 
